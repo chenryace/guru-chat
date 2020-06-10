@@ -6,7 +6,7 @@ import s from './Icon.scss';
 
 type IconSize = 'xs' | 's' | 'm';
 
-type IconType = 'kek';
+type IconType = 'send';
 
 export interface IconProps {
     type: IconType;

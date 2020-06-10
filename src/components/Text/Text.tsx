@@ -8,7 +8,7 @@ type TextFont = 'Karla';
 type TextSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 type TextLine = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 type TextWeight = 'regular' | 'bold';
-type TextColor = 'white' | 'pink';
+type TextColor = 'white' | 'black' | 'pink';
 
 export interface TextProps {
     font?: TextFont;

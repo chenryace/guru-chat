@@ -12,6 +12,10 @@ const routes: Route<AppRouterContext, RouteResult> = {
     // Keep in mind, routes are evaluated in order
     children: [
         {
+            path: '',
+            load: () => import(/* webpackChunkName: 'chat' */ './chat'),
+        },
+        {
             path: '/auth',
             load: () => import(/* webpackChunkName: 'auth' */ './auth'),
         },

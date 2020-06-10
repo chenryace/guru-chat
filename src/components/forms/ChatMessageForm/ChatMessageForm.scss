@@ -1,0 +1,15 @@
+
+.ChatMessageForm {
+    position: relative;
+
+    &-Field .MessageInput-Input {
+        padding-right: 100px;
+    }
+
+    & &-Button {
+        position: absolute;
+        top: 0;
+        right: 30px;
+        transform: translateY(-50%);
+    }
+}

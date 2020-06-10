@@ -19,9 +19,22 @@
     }
 
     &_shape_rect {
+        &.Button_color_pink { background-color: $color-pink-light; }
+
         &.Button_size_s {
             font-size: $font-size-m;
             line-height: $line-height-m;
+        }
+    }
+
+    &_shape_circle {
+        border-radius: 50%;
+
+        &.Button_color_pink { background-color: $color-pink-light; }
+
+        &.Button_size_m {
+            width: 60px;
+            height: 60px;
         }
     }
 
