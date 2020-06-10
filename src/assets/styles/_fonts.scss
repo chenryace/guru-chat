@@ -3,7 +3,7 @@
 /* CUSTOM FONTS
    =============================================== */
 
-@include font-face('OpenSans', '../../assets/fonts/OpenSans/OpenSans-Regular', 400, normal, eot ttf woff);
-@include font-face('OpenSans', '../../assets/fonts/OpenSans/OpenSans-SemiBold', 600, normal, eot ttf woff);
-@include font-face('OpenSans', '../../assets/fonts/OpenSans/OpenSans-Bold', 700, normal, eot ttf woff);
-@include font-face('Rubik', '../../assets/fonts/Rubik/Rubik-Bold', 700, normal, eot ttf woff);
+@include font-face('Karla', '../../assets/fonts/Karla/Karla-Regular', 400, normal, ttf);
+@include font-face('Karla', '../../assets/fonts/Karla/Karla-Italic', 400, italic, ttf);
+@include font-face('Karla', '../../assets/fonts/Karla/Karla-Bold', 700, normal, ttf);
+@include font-face('Karla', '../../assets/fonts/Karla/Karla-BoldItalic', 700, italic, ttf);

@@ -14,6 +14,7 @@
 .Page {
     width: 100%;
     min-height: 100vh;
+    height: 0;
     overflow-x: hidden;
 }
 
@@ -27,14 +28,14 @@ html {
     font-weight: 400;
     line-height: 1.375;
     background-color: $color-bg;
-    color: $color-gray;
+    color: $color-white;
 }
 
 * { box-sizing: border-box; }
 
 body { margin: 0; }
 
-a { color: $color-blue; }
+a { color: $color-white; }
 
 /*
  * Remove text-shadow in selection highlight:
