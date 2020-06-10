@@ -1,11 +1,9 @@
 import { ModuleContext } from '@graphql-modules/core';
-import { IRules } from 'graphql-shield';
 
 import { UsersContext } from './index';
 import { Resolver, Resolvers, TypeResolvers } from '../../../interfaces/graphql';
 import { Query } from '../../../__generated__/graphql';
 import { User as UserBackend } from '../../models/User';
-import { isAuth } from '../rules';
 
 export type OriginUserParent = UserBackend;
 
@@ -21,12 +19,6 @@ type UsersResolvers = Resolvers<
     },
     ModuleContext<UsersContext>
 >;
-
-export const rules: IRules = {
-    Query: {
-        me: isAuth,
-    },
-};
 
 export const resolvers: UsersResolvers = {
     Query: {

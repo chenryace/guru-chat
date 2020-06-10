@@ -8,13 +8,5 @@ type Query {
 
 type User {
     id: ID!
-    role: UserRole!
     username: String!
-    avatar: URL!
-}
-
-enum UserRole {
-    Default
-    Moderator
-    Admin
 }
