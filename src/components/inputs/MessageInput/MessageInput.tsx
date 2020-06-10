@@ -12,12 +12,13 @@ export interface MessageInputProps {
     onChange: FieldInputProps<unknown>['onChange'];
     onFocus: FieldInputProps<unknown>['onFocus'];
     onBlur: FieldInputProps<unknown>['onBlur'];
+    onSubmit?: () => void;
     className?: string;
 }
 
 const cnMessageInput = cn(s, 'MessageInput');
 
-const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onFocus, onBlur, className }) => {
+const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onFocus, onBlur, onSubmit, className }) => {
     useStyles(s);
 
     const [isFocused, setFocused] = useState(false);
@@ -38,6 +39,18 @@ const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onFocus, o
         [onBlur],
     );
 
+    const handleKeyDown = useCallback(
+        (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+            const keyCode = event.keyCode || event.which;
+
+            if (!onSubmit || keyCode !== 13 || event.shiftKey) return;
+
+            event.preventDefault();
+            onSubmit();
+        },
+        [onSubmit],
+    );
+
     return (
         <div className={cnMessageInput({ isFocused, isPresent: value !== '' }, [className])}>
             <TextareaAutosize
@@ -47,6 +60,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onFocus, o
                 onChange={onChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onKeyDown={handleKeyDown}
             />
             <Text className={cnMessageInput('Placeholder')} size="m">
                 Type message...
