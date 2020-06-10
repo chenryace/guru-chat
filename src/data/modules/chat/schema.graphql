@@ -1,0 +1,28 @@
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+type Query {
+    messages: [Message!]!
+}
+
+type Mutation {
+    sendMessage(input: SendMessageInput!): Message!
+}
+
+type Subscription {
+    sentMessage: Message!
+}
+
+type Message {
+    id: ID!
+    sender: User!
+    message: String!
+    createdAt: DateTime!
+}
+
+input SendMessageInput {
+    message: String!
+}
