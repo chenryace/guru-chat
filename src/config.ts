@@ -21,7 +21,7 @@ export default {
     },
 
     // Database
-    databaseUrl: process.env.DATABASE_URL || 'mysql://root:909123@localhost:3306/playtime',
+    databaseUrl: process.env.DATABASE_URL || 'mysql://root:909123@localhost:3306/gurucan',
 
     // Redis
     redis: {
