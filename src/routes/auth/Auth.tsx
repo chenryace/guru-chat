@@ -3,22 +3,22 @@ import useStyles from 'isomorphic-style-loader/useStyles';
 
 import s from './Auth.scss';
 import { cn } from '../../utils/bem-css-module';
-
-export interface AuthProps {}
+import Title from '../../components/Title/Title';
+import AuthForm from '../../components/forms/AuthForm/AuthForm';
 
 const cnAuth = cn(s, 'Auth');
 
-const Auth: React.FC<AuthProps> = () => {
+const Auth: React.FC = () => {
     useStyles(s);
 
     return (
         <div className={cnAuth()}>
             <div className={cnAuth('Container')}>
                 <div className={cnAuth('AbsoluteContainer')}>
-                    <h1 className={cnAuth('Title')}>Chat</h1>
+                    <Title className={cnAuth('Title')}>Chat</Title>
                     <div className={cnAuth('ChatIcon')} />
                 </div>
-                <div className={cnAuth('Form')} />
+                <AuthForm className={cnAuth('Form')} />
             </div>
         </div>
     );
