@@ -1,3 +1,5 @@
+import { Response } from 'express';
+
 import { GraphQLModuleWithMiddlewares } from '../../../utils/graphql-modules-middlewares';
 import { ApolloContext } from '../../../interfaces/apollo';
 import { User } from '../../models/User';
@@ -6,6 +8,7 @@ import schema from './schema.graphql';
 import { resolvers } from './resolvers';
 
 export interface UsersContext {
+    res?: Response;
     user?: User;
 }
 
@@ -14,7 +17,7 @@ const UsersModule = new GraphQLModuleWithMiddlewares<{}, ApolloContext, UsersCon
     imports: [ScalarsModule],
     typeDefs: schema,
     resolvers,
-    context: ({ user }) => ({ user }),
+    context: ({ res, user }) => ({ res, user }),
 });
 
 export default UsersModule;

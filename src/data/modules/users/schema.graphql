@@ -1,12 +1,21 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
     me: User
 }
 
+type Mutation {
+    auth(input: AuthInput!): User!
+}
+
 type User {
     id: ID!
+    username: String!
+}
+
+input AuthInput {
     username: String!
 }

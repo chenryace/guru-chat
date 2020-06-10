@@ -45,7 +45,14 @@ const ChatMessageForm: React.FC<ChatMessageFormProps> = ({ onMutate, className }
             {({ handleSubmit }) => (
                 <form className={cnChatMessageForm(null, [className])} onSubmit={handleSubmit}>
                     <MessageField className={cnChatMessageForm('Field')} name="message" />
-                    <Button className={cnChatMessageForm('Button')} shape="circle" color="pink" size="m" icon="send" />
+                    <Button
+                        className={cnChatMessageForm('Button')}
+                        shape="circle"
+                        color="pink"
+                        size="m"
+                        icon="send"
+                        submit
+                    />
                 </form>
             )}
         </Form>
