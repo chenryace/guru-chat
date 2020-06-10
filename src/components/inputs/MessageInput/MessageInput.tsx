@@ -55,7 +55,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ value, onChange, onFocus, o
         <div className={cnMessageInput({ isFocused, isPresent: value !== '' }, [className])}>
             <TextareaAutosize
                 className={cnMessageInput('Input')}
-                maxRows={5}
+                maxRows={6}
                 value={value}
                 onChange={onChange}
                 onFocus={handleFocus}

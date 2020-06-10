@@ -1,5 +1,7 @@
 import { inputRule } from 'graphql-shield';
 
+import { normalizeMessage } from '../../../utils/message';
+
 const rMessage = /^[a-zA-Zа-яА-ЯёЁ0-9_./%!?@#$&*()[\]<>+=\-:;^,"'\s]{1,255}$/;
 
 export const checkSendMessageArgs = inputRule()(yup =>
@@ -8,7 +10,7 @@ export const checkSendMessageArgs = inputRule()(yup =>
             message: yup
                 .string()
                 .required('INVALID_MESSAGE_REQUIRED')
-                .transform(value => value.replace(/\n{3,}/g, '\n\n').trim())
+                .transform(value => normalizeMessage(value))
                 .min(1, 'INVALID_MESSAGE_MIN')
                 .max(255, 'INVALID_MESSAGE_MAX')
                 .matches(rMessage, 'INVALID_MESSAGE_MATCHES'),

@@ -8,6 +8,7 @@ import { cn } from '../../../utils/bem-css-module';
 import MessageField from '../../fields/MessageField/MessageField';
 import useSendMessageMutation from '../../../hooks/graphql/useSendMessageMutation';
 import Button from '../../Button/Button';
+import { normalizeMessage } from '../../../utils/message';
 
 export interface ChatMessageFormValues {
     message: string;
@@ -29,7 +30,9 @@ const ChatMessageForm: React.FC<ChatMessageFormProps> = ({ onMutate, className }
         async (values: ChatMessageFormValues, form: FormApi<ChatMessageFormValues>) => {
             if (!values.message) return;
 
-            await sendMessageMutation(values);
+            await sendMessageMutation({
+                message: normalizeMessage(values.message),
+            });
 
             if (onMutate) {
                 onMutate();
