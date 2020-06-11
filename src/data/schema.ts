@@ -1,4 +1,8 @@
 // NOTE: This file intended only for importing in codegen
-import AppModule from './modules/app';
+import { mergeTypeDefs } from '@graphql-toolkit/schema-merging';
 
-export default AppModule.typeDefs;
+import scalars from './modules/scalars/schema.graphql';
+import users from './modules/users/schema.graphql';
+import chat from './modules/chat/schema.graphql';
+
+export default mergeTypeDefs([scalars, users, chat]);
