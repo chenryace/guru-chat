@@ -33,7 +33,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ className }) => {
     );
 
     return (
-        <Form<AuthFormValues> onSubmit={onSubmit}>
+        <Form<AuthFormValues> onSubmit={onSubmit} initialValues={{ username: '' }}>
             {({ handleSubmit }) => (
                 <form className={cnAuthForm(null, [className])} onSubmit={handleSubmit}>
                     <div className={cnAuthForm('Main')}>

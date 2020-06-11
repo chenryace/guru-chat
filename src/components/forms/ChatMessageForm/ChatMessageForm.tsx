@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import useStyles from 'isomorphic-style-loader/useStyles';
 import { Form } from 'react-final-form';
 import { FormApi } from 'final-form';
@@ -24,11 +24,16 @@ const cnChatMessageForm = cn(s, 'ChatMessageForm');
 const ChatMessageForm: React.FC<ChatMessageFormProps> = ({ onMutate, className }) => {
     useStyles(s);
 
+    const [isAnimating, setAnimating] = useState(false);
+
     const sendMessageMutation = useSendMessageMutation();
 
     const onSubmit = useCallback(
         async (values: ChatMessageFormValues, form: FormApi<ChatMessageFormValues>) => {
-            if (!values.message) return;
+            if (!values.message.trim()) return;
+
+            setAnimating(true);
+            setTimeout(() => setAnimating(false), 1500);
 
             await sendMessageMutation({
                 message: normalizeMessage(values.message),
@@ -44,12 +49,12 @@ const ChatMessageForm: React.FC<ChatMessageFormProps> = ({ onMutate, className }
     );
 
     return (
-        <Form<ChatMessageFormValues> onSubmit={onSubmit}>
+        <Form<ChatMessageFormValues> onSubmit={onSubmit} initialValues={{ message: '' }}>
             {({ handleSubmit }) => (
                 <form className={cnChatMessageForm(null, [className])} onSubmit={handleSubmit}>
                     <MessageField className={cnChatMessageForm('Field')} name="message" onSubmit={handleSubmit} />
                     <Button
-                        className={cnChatMessageForm('Button')}
+                        className={cnChatMessageForm('Button', { isAnimating })}
                         shape="circle"
                         color="pink"
                         size="m"
