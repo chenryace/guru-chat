@@ -5,6 +5,7 @@ import clean from './clean';
 import copy from './copy';
 import bundle from './bundle';
 import render from './render';
+import codegen from './codegen';
 import pkg from '../package.json';
 
 /**
@@ -12,6 +13,7 @@ import pkg from '../package.json';
  * format and copies it to the output (build) folder.
  */
 async function build() {
+    await run(codegen);
     await run(clean);
     await run(copy);
     await run(bundle);

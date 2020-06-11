@@ -45,7 +45,6 @@ export default async function codegen() {
                 scalars: {
                     URL: 'string',
                     DateTime: 'string',
-                    HexColorCode: 'string',
                 },
             },
             generates: {
