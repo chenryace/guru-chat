@@ -45,8 +45,7 @@
 @mixin typography() {
     font-size: 100%;
 
-    &_font_OpenSans { font-family: OpenSans, sans-serif; }
-    &_font_Rubik { font-family: Rubik, sans-serif; }
+    &_font_Karla { font-family: Karla, sans-serif; }
 
     &_size_xs { font-size: $font-size-xs; }
     &_size_s { font-size: $font-size-s; }
@@ -63,17 +62,11 @@
     &_line_xxl { line-height: $line-height-xxl; }
 
     &_weight_regular { font-weight: 400; }
-    &_weight_semiBold { font-weight: 600; }
     &_weight_bold { font-weight: 700; }
 
-    &_color_gray { color: $color-gray; }
     &_color_white { color: $color-white; }
-    &_color_blue { color: $color-blue; }
-    &_color_green { color: $color-green; }
-    &_color_gold { color: $color-gold; }
-    &_color_red { color: $color-red; }
+    &_color_black { color: $color-black; }
     &_color_pink { color: $color-pink; }
-    &_color_aqua { color: $color-aqua; }
 
     &_italic { font-style: italic; }
 

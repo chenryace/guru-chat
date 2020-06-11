@@ -1,20 +1,21 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
     me: User
 }
 
-type User {
-    id: ID!
-    role: UserRole!
-    username: String!
-    avatar: URL!
+type Mutation {
+    auth(input: AuthInput!): User!
 }
 
-enum UserRole {
-    Default
-    Moderator
-    Admin
+type User {
+    id: ID!
+    username: String!
+}
+
+input AuthInput {
+    username: String!
 }

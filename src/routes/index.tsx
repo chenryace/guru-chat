@@ -11,6 +11,15 @@ const routes: Route<AppRouterContext, RouteResult> = {
 
     // Keep in mind, routes are evaluated in order
     children: [
+        {
+            path: '',
+            load: () => import(/* webpackChunkName: 'chat' */ './chat'),
+        },
+        {
+            path: '/auth',
+            load: () => import(/* webpackChunkName: 'auth' */ './auth'),
+        },
+
         // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
         {
             path: '(.*)',
@@ -23,7 +32,7 @@ const routes: Route<AppRouterContext, RouteResult> = {
         const route = await next();
 
         // Provide default values for title, description etc.
-        route.title = `${route.title || 'Untitled Page'} - PlayTime`;
+        route.title = `${route.title || 'Untitled Page'} - GuruCan Chat`;
         route.description = route.description || '';
 
         // Render page content wrapped in page if exists

@@ -1,0 +1,39 @@
+@import '../../../assets/styles/vars';
+
+.ChatMessageForm {
+    position: relative;
+
+    &-Field .MessageInput-Input { padding-right: 100px; }
+
+    & &-Button {
+        position: absolute;
+        top: 0;
+        right: 30px;
+        overflow: hidden;
+        transform: translateY(-50%);
+
+        &_isAnimating .Button-Icon {
+            animation-name: sendMessage;
+            animation-duration: 1s;
+            animation-timing-function: $nice-ease;
+        }
+    }
+}
+
+@keyframes sendMessage {
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    30% {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+
+    40% {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+}

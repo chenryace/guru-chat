@@ -1,0 +1,47 @@
+@import '../../assets/styles/vars';
+
+.Button {
+    position: relative;
+    border: none;
+    padding: 0;
+    color: $color-white;
+    background: transparent;
+    font-family: inherit;
+    font-size: 100%;
+    outline: none;
+    cursor: pointer;
+
+    &-Text { -webkit-font-smoothing: antialiased; }
+
+    &-Icon { position: relative; }
+
+    &:hover .Button-Icon_withHover {
+        &::before { opacity: 0; }
+        &::after { opacity: 1; }
+    }
+
+    &_shape_rect {
+        &.Button_color_pink { background-color: $color-pink-light; }
+
+        &.Button_size_s {
+            font-size: $font-size-m;
+            line-height: $line-height-m;
+        }
+    }
+
+    &_shape_circle {
+        border-radius: 50%;
+
+        &.Button_color_pink { background-color: $color-pink-light; }
+
+        &.Button_size_m {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &_weight_normal .Button-Text { font-weight: 400; }
+    &_weight_bold .Button-Text { font-weight: 700; }
+
+    &_upper .Button-Text { text-transform: uppercase; }
+}
