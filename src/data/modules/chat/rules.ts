@@ -2,7 +2,7 @@ import { inputRule } from 'graphql-shield';
 
 import { normalizeMessage } from '../../../utils/message';
 
-const rMessage = /^[a-zA-Zа-яА-ЯёЁ0-9_./%!?@#$&*()[\]<>+=\-:;^,"'\s]{1,255}$/;
+const rMessage = /^[a-zA-Zа-яА-ЯёЁ0-9_./%!?@#$&*()[\]<>+=\-:;^,"'~\s]{1,255}$/;
 
 export const checkSendMessageArgs = inputRule()(yup =>
     yup.object({

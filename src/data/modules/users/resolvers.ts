@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { ModuleContext } from '@graphql-modules/core';
+import { IRules } from 'graphql-shield';
 
 import config from '../../../config';
 import { UsersContext } from './index';
@@ -7,6 +8,7 @@ import { Resolver, Resolvers, TypeResolvers } from '../../../interfaces/graphql'
 import { Mutation, MutationAuthArgs, Query } from '../../../__generated__/graphql';
 import { User as UserBackend } from '../../models/User';
 import { repositories } from '../../database';
+import { checkAuthArgs } from './rules';
 
 export type OriginUserParent = UserBackend;
 
@@ -28,6 +30,12 @@ type UsersResolvers = Resolvers<
     },
     ModuleContext<UsersContext>
 >;
+
+export const rules: IRules = {
+    Mutation: {
+        auth: checkAuthArgs,
+    },
+};
 
 export const resolvers: UsersResolvers = {
     Query: {
