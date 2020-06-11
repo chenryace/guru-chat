@@ -1,6 +1,4 @@
 fragment User on User {
     id
     username
-    avatar
-    role
 }

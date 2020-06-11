@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { User } from '../data/models/User';
 

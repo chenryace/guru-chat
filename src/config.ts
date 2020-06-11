@@ -29,21 +29,10 @@ export default {
         port: Number(process.env.REDIS_PORT || 6379),
     },
 
-    // Web analytics
-    analytics: {
-        // https://analytics.google.com/
-        googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
-    },
-
     // Authentication
     auth: {
         tokenKey: process.env.TOKEN_KEY || 'idToken',
 
         jwt: { secret: process.env.JWT_SECRET || 'idontknow' },
-
-        vk: {
-            appId: process.env.VK_APP_ID || '7389243',
-            appSecret: process.env.VK_APP_SECRET || 'nSv8gRPyhjkuNiO5cvYf',
-        },
     },
 };

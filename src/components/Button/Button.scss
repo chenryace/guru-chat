@@ -13,6 +13,8 @@
 
     &-Text { -webkit-font-smoothing: antialiased; }
 
+    &-Icon { position: relative; }
+
     &:hover .Button-Icon_withHover {
         &::before { opacity: 0; }
         &::after { opacity: 1; }

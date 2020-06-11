@@ -11,6 +11,7 @@ import { repositories } from '../../database';
 import pubsub from '../../pubsub';
 import { isAuth } from '../rules';
 import { checkSendMessageArgs } from './rules';
+import { normalizeMessage } from '../../../utils/message';
 
 export type OriginMessageParent = MessageBackend;
 
@@ -59,7 +60,7 @@ export const resolvers: ChatResolvers = {
     },
     Mutation: {
         sendMessage: async (_0, { input: { message } }, { user }) => {
-            const sentMessage = await repositories.messages.addMessage(user!.id, message);
+            const sentMessage = await repositories.messages.addMessage(user!.id, normalizeMessage(message));
 
             pubsub.publish('sentMessage', sentMessage).then();
             return sentMessage;

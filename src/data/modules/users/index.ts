@@ -1,3 +1,4 @@
+import { Response } from 'express';
 import { shield } from 'graphql-shield';
 
 import { GraphQLModuleWithMiddlewares } from '../../../utils/graphql-modules-middlewares';
@@ -9,6 +10,7 @@ import schema from './schema.graphql';
 import { resolvers, rules } from './resolvers';
 
 export interface UsersContext {
+    res?: Response;
     user?: User;
 }
 
@@ -20,7 +22,7 @@ const UsersModule = new GraphQLModuleWithMiddlewares<{}, ApolloContext, UsersCon
     typeDefs: schema,
     resolvers,
     middlewares: [permissions],
-    context: ({ user }) => ({ user }),
+    context: ({ res, user }) => ({ res, user }),
 });
 
 export default UsersModule;

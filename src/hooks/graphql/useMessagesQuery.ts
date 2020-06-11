@@ -2,10 +2,6 @@ import { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 import {
-    DeletedMessageDocument,
-    DeletedMessagesBySenderDocument,
-    DeletedMessagesBySenderSubscription,
-    DeletedMessageSubscription,
     MessagesDocument,
     MessagesQuery,
     SentMessageDocument,
@@ -36,30 +32,6 @@ const useMessagesQuery = (
                 return {
                     ...prev,
                     messages: appendById(prev.messages, sentMessage),
-                };
-            },
-        });
-
-        subscribeToMore<DeletedMessageSubscription>({
-            document: DeletedMessageDocument,
-            updateQuery: (prev, { subscriptionData }) => {
-                const { deletedMessage } = subscriptionData.data;
-
-                return {
-                    ...prev,
-                    messages: prev.messages.filter(message => message.id !== deletedMessage.messageId),
-                };
-            },
-        });
-
-        subscribeToMore<DeletedMessagesBySenderSubscription>({
-            document: DeletedMessagesBySenderDocument,
-            updateQuery: (prev, { subscriptionData }) => {
-                const { deletedMessagesBySender } = subscriptionData.data;
-
-                return {
-                    ...prev,
-                    messages: prev.messages.filter(message => message.sender.id !== deletedMessagesBySender.senderId),
                 };
             },
         });
