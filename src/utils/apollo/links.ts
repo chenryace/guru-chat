@@ -32,7 +32,7 @@ export const wsLink = (config: Partial<WebSocketLink.Configuration> = {}) => {
     const host = __DEV__ ? `${hostname}:3002` : originalHost;
 
     return new WebSocketLink({
-        uri: `ws://${host}/graphql`,
+        uri: `wss://${host}/graphql`,
         options: {
             reconnect: true,
         },
