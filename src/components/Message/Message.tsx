@@ -53,20 +53,31 @@ const transformMessage = (message: string): React.ReactNode => {
     return React.createElement(React.Fragment, null, ...transformNewLines([message]).filter(Boolean));
 };
 
+const addLeadingZeros = (number: number) => {
+    return `0${number}`.slice(-2);
+};
+
+const transformDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    return `${addLeadingZeros(date.getHours())}:${addLeadingZeros(date.getMinutes())}`;
+};
+
 const cnMessage = cn(s, 'Message');
 
-const Message: React.FC<MessageProps> = ({ sender, message }) => {
+const Message: React.FC<MessageProps> = ({ sender, message, createdAt }) => {
     useStyles(s);
 
     const transformedMessage = useMemo(() => transformMessage(message), [message]);
+    const transformedDate = useMemo(() => transformDate(createdAt), [createdAt]);
 
     return (
         <div className={cnMessage()}>
             <TextBlock className={cnMessage('Text')} size="m" color="black">
                 {transformedMessage}
             </TextBlock>
-            <Text size="xs" color="pink">
-                {sender.username}&nbsp;&nbsp;•&nbsp;&nbsp;5 minutes ago
+            <Text className={cnMessage('Info')} size="xs" color="pink">
+                <span className={cnMessage('Username')}>{sender.username}</span>&nbsp;&nbsp;•&nbsp;&nbsp;
+                {transformedDate}
             </Text>
         </div>
     );
