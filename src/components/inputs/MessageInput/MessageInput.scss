@@ -19,6 +19,7 @@
         font-size: $font-size-m;
         line-height: $line-height-m;
         resize: none;
+        z-index: 2;
     }
 
     & &-Placeholder {
