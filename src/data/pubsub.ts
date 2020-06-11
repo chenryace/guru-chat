@@ -36,15 +36,13 @@ export class TypedPubSub {
 }
 
 const redisOptions: RedisOptions = {
-    host: config.redis.host,
-    port: config.redis.port,
     retryStrategy: times => Math.min(times * 50, 2000),
 };
 
 const pubsub = new TypedPubSub(
     new RedisPubSub({
-        publisher: new Redis(redisOptions),
-        subscriber: new Redis(redisOptions),
+        publisher: new Redis(config.redisUrl, redisOptions),
+        subscriber: new Redis(config.redisUrl, redisOptions),
     }),
 );
 

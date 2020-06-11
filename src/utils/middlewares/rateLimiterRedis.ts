@@ -4,9 +4,7 @@ import { RateLimiterRedis } from 'rate-limiter-flexible';
 
 import config from '../../config';
 
-const redis = new Redis({
-    host: config.redis.host,
-    port: config.redis.port,
+const redis = new Redis(config.redisUrl, {
     retryStrategy: times => Math.min(times * 50, 2000),
 });
 
