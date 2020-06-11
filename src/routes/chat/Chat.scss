@@ -41,6 +41,17 @@
         z-index: 1;
     }
 
+    & &-LogoutBtn {
+        position: absolute;
+        bottom: 18px;
+        left: 30px;
+
+        .Text {
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+    }
+
     & &-MessagesContainer {
         position: relative;
         flex-grow: 1;

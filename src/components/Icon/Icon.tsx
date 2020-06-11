@@ -6,7 +6,7 @@ import s from './Icon.scss';
 
 type IconSize = 'xs' | 's' | 'm';
 
-type IconType = 'send';
+type IconType = 'send' | 'arrow-left';
 
 export interface IconProps {
     type: IconType;
