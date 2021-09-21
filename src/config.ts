@@ -21,7 +21,8 @@ export default {
     },
 
     // Database
-    databaseUrl: process.env.CLEARDB_DATABASE_URL || 'mysql://root:909123@localhost:3306/gurucan',
+    databaseUrl:
+        process.env.DATABASE_URL || process.env.CLEARDB_DATABASE_URL || 'mysql://root:password@localhost:3306/guruchat',
 
     // Redis
     redisUrl: process.env.REDIS_URL || 'localhost',

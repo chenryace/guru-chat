@@ -63,7 +63,7 @@ const Chat: React.FC = () => {
                             Back
                         </Text>
                     </Link>
-                    <Text size="l">Test task</Text>
+                    <Text size="l">GuruChat</Text>
                 </div>
                 <Scrollable className={cnChat('MessagesContainer')} disablePadding ref={scrollableRef}>
                     <div className={cnChat('Messages')}>
