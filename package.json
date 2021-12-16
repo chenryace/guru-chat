@@ -14,7 +14,7 @@
     ],
     "dependencies": {
         "@apollo/react-hooks": "^3.1.5",
-        "@babel/runtime": "^7.9.6",
+        "@babel/runtime": "^7.16.3",
         "@graphql-modules/core": "^0.7.15",
         "@graphql-modules/di": "^0.7.15",
         "@graphql-toolkit/schema-merging": "^0.10.7",
